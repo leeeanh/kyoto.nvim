@@ -21,6 +21,7 @@ opt.whichwrap:append("<>hl")
 opt.pumheight = 20
 opt.foldmethod = "manual"
 vim.cmd("set wildcharm=<Tab>")
+vim.g.mapleader = " "
 
 -- vim.cmd("colorscheme tokyonight")
 
