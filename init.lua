@@ -36,11 +36,9 @@ require("plugins")
 require("colors.highlights")
 -- Langauge server configuration
 require("lsp-config")
--- Plugin configurations
-require("plugins")
--- source our mappings last(may change)
-vim.cmd("source ~/.config/nvim/viml/maps.vim")
+-- vim.cmd("source ~/.config/nvim/viml/maps.vim")
+require("keymappings").setup()
 -- auto-commands
-vim.cmd("source ~/.config/nvim/viml/autocmd.vim")
+-- vim.cmd("source ~/.config/nvim/viml/autocmd.vim")
 -- user configurations
-require("kyotorc")
+-- require("kyotorc")
