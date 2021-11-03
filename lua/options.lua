@@ -2,6 +2,7 @@ local vim = vim
 local opt = vim.opt
 
 opt.ruler = false
+opt.swapfile = false
 opt.hidden = true
 opt.ignorecase = true
 opt.splitbelow = true
@@ -20,8 +21,13 @@ opt.background = "dark"
 opt.whichwrap:append("<>hl")
 opt.pumheight = 20
 opt.foldmethod = "manual"
+opt.undodir = vim.fn.stdpath "cache" .. "/undo"
+opt.undofile = true
+opt.writebackup = false
+opt.spelllang = "en"
+opt.scrolloff = 8 -- is one of my fav
+opt.sidescrolloff = 8
 vim.cmd("set wildcharm=<Tab>")
-vim.g.mapleader = " "
 
 -- vim.cmd("colorscheme tokyonight")
 
