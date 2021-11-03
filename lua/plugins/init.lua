@@ -18,3 +18,5 @@ require("plugins.tree-sitter")
 require("plugins.trouble")
 -- Third party sources for coq_nvim
 require("plugins.coq3p")
+-- NvimTree config
+require("plugins.nvimtree").configs()
