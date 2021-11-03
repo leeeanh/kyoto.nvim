@@ -27,11 +27,11 @@ local mappings = {
   ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
   p = {
     name = "Packer",
-    c = { "<cmd>PackerCompile<cr>", "Compile" },
-    i = { "<cmd>PackerInstall<cr>", "Install" },
-    s = { "<cmd>PackerSync<cr>", "Sync" },
-    S = { "<cmd>PackerStatus<cr>", "Status" },
-    u = { "<cmd>PackerUpdate<cr>", "Update" },
+    c = { "<cmd>lua require 'plugin' require('packer').compile()<cr>", "Compile" },
+    i = { "<cmd>lua require 'plugin' require('packer').install()<cr>", "Install" },
+    s = { "<cmd>lua require 'plugin' require('packer').sync()<cr>", "Sync" },
+    S = { "<cmd>lua require 'plugin' require('packer').status()<cr>", "Status" },
+    u = { "<cmd>lua require 'plugin' require('packer').update()<cr>", "Update" },
   },
 }
 
