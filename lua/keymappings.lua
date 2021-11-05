@@ -48,7 +48,11 @@ local keys = {
     ["<C-q>"] = ":call QuickFixToggle()<CR>",
 
     -- Comments
-    [",,"] = "<cmd>lua require('Comment').toggle()<CR>"
+    [",,"] = { [[v:count == 0 ? '<CMD>lua ___comment_call("gcc")<CR>g@$' : '<CMD>lua ___comment_count_gcc()<CR>']],
+                { noremap = true, silent = true, expr = true } },
+
+    -- LSP
+    ["K"] = {"<Cmd>lua vim.lsp.buf.hover()<CR>", { expr = true, noremap = true } }
   },
 
   ---@usage change or add keymappings for terminal mode
