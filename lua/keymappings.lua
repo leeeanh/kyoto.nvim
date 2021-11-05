@@ -46,6 +46,9 @@ local keys = {
     ["]q"] = ":cnext<CR>",
     ["[q"] = ":cprev<CR>",
     ["<C-q>"] = ":call QuickFixToggle()<CR>",
+
+    -- Comments
+    [",,"] = "<cmd>lua require('Comment').toggle()<CR>"
   },
 
   ---@usage change or add keymappings for terminal mode
@@ -62,6 +65,9 @@ local keys = {
     -- Better indenting
     ["<"] = "<gv",
     [">"] = ">gv",
+
+    -- Comments
+    [","] = "<ESC><CMD>lua ___comment_gc(vim.fn.visualmode())<CR>"
 
     -- ["p"] = '"0p',
     -- ["P"] = '"0P',
