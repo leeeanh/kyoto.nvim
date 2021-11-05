@@ -44,11 +44,14 @@ packer.init({
   },
   auto_clean = true,
   compile_on_sync = true,
+  -- compile_path = util.join_paths(vim.fn.stdpath('config'), 'plugin', 'packer_compiled.lua'),
+  compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua'
   --    auto_reload_compiled = true
 })
 
 local vim = vim
 require("packer").startup(function(use)
+  use 'lewis6991/impatient.nvim'
   use("wbthomason/packer.nvim")
   use({
     "NvChad/nvim-base16.lua",
@@ -56,9 +59,9 @@ require("packer").startup(function(use)
   use({
     "kyazdani42/nvim-tree.lua",
     requires = "kyazdani42/nvim-web-devicons",
-    config = function()
+    config = function ()
       require("plugins.nvimtree").setup()
-    end,
+    end
   })
   use("glepnir/lspsaga.nvim")
   use("kabouzeid/nvim-lspinstall")
@@ -108,7 +111,7 @@ require("packer").startup(function(use)
         require('Comment').setup()
     end
   })
-  use("kdheepak/lazygit.nvim")
+  -- use("kdheepak/lazygit.nvim")
   use({ "tweekmonster/startuptime.vim", opt = true })
   use("p00f/nvim-ts-rainbow")
   use("famiu/feline.nvim")
@@ -119,9 +122,6 @@ require("packer").startup(function(use)
   use(
   {
     "lukas-reineke/indent-blankline.nvim",
-    -- setup = function()
-    --     vim.g.indent_blankline_char = "▏"
-    -- end,
     config = function ()
       require("plugins.blankline").config()
     end,

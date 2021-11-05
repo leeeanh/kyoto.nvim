@@ -24,6 +24,9 @@ local vim = vim
 vim.opt.nu = true
 vim.opt.rnu = true
 
+require('packer_compiled')
+require('impatient')
+require'impatient'.enable_profile()
 -- Global variables
 require("globals")
 -- Personal global variables
