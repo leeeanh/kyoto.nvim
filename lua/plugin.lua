@@ -72,7 +72,12 @@ require("packer").startup(function(use)
     "akinsho/nvim-bufferline.lua",
     requires = "kyazdani42/nvim-web-devicons",
   })
-  use("jiangmiao/auto-pairs")
+  use({
+    "windwp/nvim-autopairs",
+    config = function ()
+      require("plugins.autopairs").setup()
+    end
+  })
   use({
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
@@ -97,17 +102,32 @@ require("packer").startup(function(use)
     },
   })
   use("folke/which-key.nvim")
-  use("tpope/vim-commentary")
+  use({
+    "numToStr/Comment.nvim",
+    config = function()
+        require('Comment').setup()
+    end
+  })
   use("kdheepak/lazygit.nvim")
   use({ "tweekmonster/startuptime.vim", opt = true })
   use("p00f/nvim-ts-rainbow")
-  use("lukas-reineke/indent-blankline.nvim")
   use("famiu/feline.nvim")
-  use({ "vimwiki/vimwiki", opt = true })
   use({
     "creativenull/diagnosticls-configs-nvim",
     opt = true,
   })
+  use(
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    -- setup = function()
+    --     vim.g.indent_blankline_char = "▏"
+    -- end,
+    config = function ()
+      require("plugins.blankline").config()
+    end,
+    event = "BufRead",
+  }
+  )
 
   use("ms-jpq/coq_nvim")
   use("ms-jpq/coq.artifacts")
@@ -115,4 +135,5 @@ require("packer").startup(function(use)
   for _, plugin in ipairs(vim.g.kyoto_extra_plugins) do
     use(plugin)
   end
-end)
+end
+)
