@@ -52,6 +52,7 @@ packer.init({
 local vim = vim
 require("packer").startup(function(use)
   use 'lewis6991/impatient.nvim'
+  use("nathom/filetype.nvim")
   use("wbthomason/packer.nvim")
   use({
     "NvChad/nvim-base16.lua",
@@ -63,9 +64,14 @@ require("packer").startup(function(use)
       require("plugins.nvimtree").setup()
     end
   })
-  use("glepnir/lspsaga.nvim")
   use("kabouzeid/nvim-lspinstall")
-  use("nvim-treesitter/nvim-treesitter")
+  use({
+    "nvim-treesitter/nvim-treesitter",
+    branch = "0.5-compat",
+    config = function()
+      require("plugins.tree-sitter")
+    end
+  })
   use("neovim/nvim-lspconfig")
   use({
     "nvim-telescope/telescope.nvim",
@@ -112,7 +118,6 @@ require("packer").startup(function(use)
     end
   })
   -- use("kdheepak/lazygit.nvim")
-  use({ "tweekmonster/startuptime.vim", opt = true })
   use("p00f/nvim-ts-rainbow")
   use("famiu/feline.nvim")
   use({
