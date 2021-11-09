@@ -23,6 +23,7 @@ local vim = vim
 -- init because otherwise dashboard shows line numbers
 vim.opt.nu = true
 vim.opt.rnu = true
+vim.g.did_load_filetypes = 1
 
 require('packer_compiled')
 require('impatient')
