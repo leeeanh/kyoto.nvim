@@ -34,6 +34,28 @@ g.coq_settings = {
   auto_start = "shut-up",
   keymap = {
     jump_to_mark = "<c-q>",
+    recommended = false
+  },
+  clients = {
+    tags = {
+        enabled = true,
+    },
+    tree_sitter = {
+        enabled = false,
+    },
+    buffers = {
+        same_filetype = true,
+    },
+    tmux = {
+        enabled = false,
+    },
+    tabnine = {
+        enabled = false,
+    },
+    snippets = {
+        -- Don't bother about snippets
+        warn = {},
+    },
   },
 }
 
