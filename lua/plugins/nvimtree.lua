@@ -9,47 +9,6 @@ local present, tree_c = pcall(require, "nvim-tree.config")
 
 local tree_cb = tree_c.nvim_tree_callback
 
-function M.configs()
-  g.nvim_tree_gitignore = 1
-  g.nvim_tree_auto_ignore_ft = { "dashboard" } -- don't open tree on specific fiypes.
-  g.nvim_tree_quit_on_open = 0 -- closes tree when file's opened
-  g.nvim_tree_indent_markers = 1
-  g.nvim_tree_git_hl = 1
-  g.nvim_tree_highlight_opened_files = 0
-  g.nvim_tree_root_folder_modifier = table.concat({
-    ":t:gs?$?/..",
-    string.rep(" ", 1000),
-    "?:gs?^??",
-  })
-  g.nvim_tree_allow_resize = 1
-  g.nvim_tree_add_trailing = 0 -- append a trailing slash to folder names
-
-  g.nvim_tree_icons = {
-    default = "",
-      symlink = "",
-      git = {
-        unstaged = "",
-        staged = "S",
-        unmerged = "",
-        renamed = "➜",
-        deleted = "",
-        untracked = "U",
-        ignored = "◌",
-      },
-      folder = {
-        default = "",
-        open = "",
-        empty = "",
-        empty_open = "",
-        symlink = "",
-      },
-  }
-  -- hide statusline when nvim tree is opened
-  vim.cmd(
-    [[au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif]]
-  )
-end
-
 function M.setup()
   local config = {
     setup = {
@@ -99,6 +58,46 @@ function M.setup()
       },
     },
   }
+
+  g.nvim_tree_gitignore = 1
+  g.nvim_tree_auto_ignore_ft = { "dashboard" } -- don't open tree on specific fiypes.
+  g.nvim_tree_quit_on_open = 0 -- closes tree when file's opened
+  g.nvim_tree_indent_markers = 1
+  g.nvim_tree_git_hl = 1
+  g.nvim_tree_highlight_opened_files = 0
+  g.nvim_tree_root_folder_modifier = table.concat({
+    ":t:gs?$?/..",
+    string.rep(" ", 1000),
+    "?:gs?^??",
+  })
+  g.nvim_tree_allow_resize = 1
+  g.nvim_tree_add_trailing = 0 -- append a trailing slash to folder names
+
+  g.nvim_tree_icons = {
+    default = "",
+      symlink = "",
+      git = {
+        unstaged = "",
+        staged = "S",
+        unmerged = "",
+        renamed = "➜",
+        deleted = "",
+        untracked = "U",
+        ignored = "◌",
+      },
+      folder = {
+        default = "",
+        open = "",
+        empty = "",
+        empty_open = "",
+        symlink = "",
+      },
+  }
+  -- hide statusline when nvim tree is opened
+  vim.cmd(
+    [[au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif]]
+  )
+
   require("nvim-tree").setup(config.setup)
 end
 
