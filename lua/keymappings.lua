@@ -52,7 +52,7 @@ local keys = {
                 { noremap = true, silent = true, expr = true } },
 
     -- LSP
-    ["K"] = {"<Cmd>lua vim.lsp.buf.hover()<CR>", { expr = true, noremap = true } }
+    ["K"] = "<CMD>lua vim.lsp.buf.hover()<CR>",
   },
 
   ---@usage change or add keymappings for terminal mode
